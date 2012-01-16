@@ -1,4 +1,4 @@
-package Poundpay;
+package PoundPay;
 
 use LWP::UserAgent;
 use Modern::Perl;
@@ -6,6 +6,8 @@ use Moose;
 use JSON qw(from_json to_json);
 use URI::Escape;
 use Data::Dumper;
+
+# ABSTRACT: PoundPay payment module
 
 has developer_sid => (is => 'rw', required => 1);
 has auth_token => (is => 'rw', required => 1);
@@ -210,4 +212,3 @@ sub _make_request {
 }
 
 1;
-
