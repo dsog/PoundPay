@@ -201,12 +201,9 @@ sub _make_request {
     $req->authorization_basic($self->developer_sid, $self->auth_token);
     my $res = $ua->request($req);
 
-    my $result; 
+    my $result = from_json($res->content);
     if($res->is_success) {
-        $result = from_json($res->content);
         $result->{success} = $res->is_success;
-    } else {
-        $result->{error} = $res->message;
     }
     return $result;
 }
